@@ -47,3 +47,7 @@ Corridor/Library/metadata/
 *.log
 Striking-Theseguise/Library/CrashedAssetImports.txt
 Striking-Theseguise/Library/shadercompiler-UnityShaderCompiler.exe0.log
+*.csproj
+*.sln
+*.dwlt
+*.log
