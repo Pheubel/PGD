@@ -9,6 +9,8 @@ class StandardEnemyBase : MonoBehaviour, IEnemy
     public virtual bool IsDown { get { return _isDown; } set { throw new AccessViolationException("You are only allowed to read this value."); } }
     public virtual bool PlayerInSight { get { return _playerInSight; } set { throw new AccessViolationException("You are only allowed to read this value."); } }
 
+    public Rigidbody EnemyRigidBody { get { return _rigidBody; } set { throw new AccessViolationException("You are only allowed to read this value."); } }
+
     [SerializeField] private bool _isDown;
     [SerializeField, ReadOnly] private bool _playerInSight;
 
@@ -17,6 +19,7 @@ class StandardEnemyBase : MonoBehaviour, IEnemy
     [SerializeField] private float _apertureAngle;
     [SerializeField] private float _maxSightDistance;
     [SerializeField] private int _rayCastItterations;
+    [SerializeField] private Rigidbody _rigidBody;
     [SerializeField, ReadOnly] private GameObject _lineOfSight;
     [SerializeField, ReadOnly] private System.Timers.Timer _gameOverCountDown;
 
@@ -25,6 +28,8 @@ class StandardEnemyBase : MonoBehaviour, IEnemy
     {
         _lineOfSight = new GameObject("LineOfSight");
         _gameOverCountDown = new System.Timers.Timer(_milliSecondsTillGameOver);
+
+        _rigidBody = gameObject.GetComponent<Rigidbody>();
 
         _gameOverCountDown.Elapsed += (object sender, System.Timers.ElapsedEventArgs args) => 
         {

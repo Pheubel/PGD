@@ -6,7 +6,7 @@ public interface IEnemy
 {
     bool IsDown { get; set; }
     bool PlayerInSight { get; set; }
-
+    Rigidbody EnemyRigidBody { get; set; }
 
 
     bool PlayerInSightCheck();
